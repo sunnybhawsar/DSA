@@ -1,5 +1,6 @@
 // Problem:
     // Find Mininum and Maximum element in Array with/without sorting the array
+	// https://www.geeksforgeeks.org/maximum-and-minimum-in-an-array/
 
 using System;
 
