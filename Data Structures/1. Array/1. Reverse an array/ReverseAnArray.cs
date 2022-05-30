@@ -54,6 +54,6 @@ class Solution
 // Logic:
     // 2 Pointer
 // Complexity: 
-    // If length of array is odd then  O(n-1/2)
-    // If length of array is even then O(n/2)
+    // If length of array is odd then  O(n-1/2) i.e O(n)
+    // If length of array is even then O(n/2) i.e O(n)
     // To Print - O(n)
