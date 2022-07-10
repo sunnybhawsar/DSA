@@ -9,6 +9,7 @@ public class Program
 		int[] cost = {1,100,1,1,1,100,1,1,100,1};
 		
 		// We can start from index 0/1
+        // After paying the cost we can either climb 1 or 2 steps
 		// Need to reach on top i.e lenght of cost
 		// Minimum cost using DP
 		Console.WriteLine(MinCostClimbingStairs(cost));
