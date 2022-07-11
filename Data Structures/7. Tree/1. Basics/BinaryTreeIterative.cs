@@ -75,10 +75,11 @@ public class Solution
 
             if(temp == null)
             {
-                Console.WriteLine();
-
                 if(queue.Count > 0)
+                {
+                    Console.WriteLine();
                     queue.Enqueue(null);
+                }
             }
             else
             {
