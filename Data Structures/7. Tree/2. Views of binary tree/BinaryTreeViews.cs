@@ -29,11 +29,15 @@ public class Solution
         Print(result);
         result.Clear();
         
+        Console.WriteLine("Left side view: ");
+        LeftSideView(root, ref result);
+        Print(result);
+        result.Clear();
     }
 
     // O(n)
-    // Using Level-order traversal with Stack & Queue.
-    // Add the node which is just before separator to the result
+    // Using Level-order traversal with Stack & Queue
+    // Add the node to the result which is just before separator
     private static IList<int> RightSideView(Node root, ref IList<int> result) 
     {               
         if(root == null)
@@ -72,6 +76,48 @@ public class Solution
             }
         }
         
+        return result;
+    }
+
+    // O(n)
+    // Using Level-order traversal with Queue
+    // Add the node to the result which is just after the separator
+    private static IList<int> LeftSideView(Node root, ref IList<int> result)
+    {
+        if(root == null)
+            return result;
+
+        Queue<Node> q = new Queue<Node>();
+        Node current = root, previous = null;
+        
+        q.Enqueue(null);
+        q.Enqueue(root);
+
+        while(q.Count > 0)
+        {
+            previous = current;
+            current = q.Dequeue();
+
+            if(current != null)
+            {
+                if(previous == null)
+                {
+                    result.Add(current.data);
+                }
+
+                if(current.left != null)
+                    q.Enqueue(current.left);
+                
+                if(current.right != null)
+                    q.Enqueue(current.right);
+            }
+            else
+            {
+                if(q.Count > 0)
+                    q.Enqueue(null);
+            }
+        }
+
         return result;
     }
 
