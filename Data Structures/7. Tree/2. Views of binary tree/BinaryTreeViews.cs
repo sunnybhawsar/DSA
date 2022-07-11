@@ -29,7 +29,7 @@ public class Solution
         Print(result);
         result.Clear();
         
-        Console.WriteLine("Left side view: ");
+        Console.WriteLine("\nLeft side view: ");
         LeftSideView(root, ref result);
         Print(result);
         result.Clear();
@@ -44,20 +44,18 @@ public class Solution
             return result;
         
         Queue<Node> q = new Queue<Node>();
-        Stack<Node> s = new Stack<Node>();
-        Node current = root, temp = null;
+        Node current = root, previous = null;
         
         q.Enqueue(root);
         q.Enqueue(null);        
         
         while(q.Count > 0)
         {
+            previous = current;
             current = q.Dequeue();
             
             if(current != null)
-            {
-                s.Push(current);
-                
+            {                
                 if(current.left != null)
                     q.Enqueue(current.left);
                 
@@ -66,8 +64,7 @@ public class Solution
             }
             else
             {
-                temp = (Node) s.Pop();
-                result.Add(temp.data);
+                result.Add(previous.data);
                 
                 if(q.Count > 0)
                 {
